@@ -1,0 +1,97 @@
+
+<div class="col-sm-9 grid-margin stretch-card">
+  <div class="dash-right">
+    <div class="card">
+      <div class="dash-header d-flex justify-content-center">
+        <div class="dash-title ">
+          <h3 class=" pt-4">Liste des Profils</h3>
+        </div>
+         <div class="dash-nav ml-5 pt-4">
+          <a [routerLink]="['create-profil']" ><span class="btn btn-primary  fa fa-plus"></span></a>
+        </div> <!--764579037 778266539
+          76 168 69 59 -->
+      </div>
+      <div class="card-body">
+
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Libellé</th>
+              <th class="text-center">Actions</th>
+            </tr>
+          </thead>
+          <tbody >
+          <tr *ngFor="let p of profils; let i = index">
+            <td class="action text-justify" #td  >
+              {{p.libelle}}
+            </td>
+
+            <td class="action text-center">
+              <a [routerLink]="['']" class="btn btn-primary btn-sm"><span class="fa fa-list-ul"></span></a>
+              <a (click)="onEdit(p.id, td)" class="btn btn-info btn-sm"><span class="fa fa-edit"></span></a>
+              <a (click)="onDelete(p.id)" class="btn btn-danger btn-sm"><span class="fa fa-archive"></span></a>
+            </td>
+          </tr>
+          </tbody>
+
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
+<!-- <table class="table">
+  <thead>
+    <tr>
+      <th>Libellé</th>
+      <th>Actions</th>
+      <th>Created</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Jacob</td>
+      <td>53275531</td>
+      <td>12 May 2017</td>
+      <td>
+        <label class="badge badge-danger">Pending</label>
+      </td>
+    </tr>
+    <tr>
+      <td>Messsy</td>
+      <td>53275532</td>
+      <td>15 May 2017</td>
+      <td>
+        <label class="badge badge-warning">In progress</label>
+      </td>
+    </tr>
+    <tr>
+      <td>John</td>
+      <td>53275533</td>
+      <td>14 May 2017</td>
+      <td>
+        <label class="badge badge-info">Fixed</label>
+      </td>
+    </tr>
+    <tr>
+      <td>Peter</td>
+      <td>53275534</td>
+      <td>16 May 2017</td>
+      <td>
+        <label class="badge badge-success">Completed</label>
+      </td>
+    </tr>
+    <tr>
+      <td>Dave</td>
+      <td>53275535</td>
+      <td>20 May 2017</td>
+      <td>
+        <label class="badge badge-warning">In progress</label>
+      </td>
+    </tr>
+  </tbody>
+</table> -->

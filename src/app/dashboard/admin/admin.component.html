@@ -1,0 +1,166 @@
+<div class="wrapper d-flex align-items-stretch ">
+  <nav id="sidebar" class="sidebar" #navbar>
+    <div class="custom-menu">
+      <button
+        type="button"
+        data-toggle="collapse in"
+        data-target="#sidebar"
+        id="sidebarCollapse"
+        aria-controls="sidebar"
+        aria-expanded="false"
+        aria-label="menu toggle"
+        class="btn btn-primary "
+        (click)="jquery($event)"
+      >
+        <i class="fa fa-bars"></i>
+      </button>
+    </div>
+    <div class="p-4">
+      <h1>
+        <a href="index.html" class="logo">ODC <span>SONATEL ACADEMY</span></a>
+      </h1>
+      <ul class="list-unstyled components mb-5">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['briefs']"
+            ><i class="fa fa-file-text mr-3"></i>
+            <span class="menu-title">Briefs</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['rendus']">
+            <i class="fa fa-download mr-3"></i>
+            <span class="menu-title">Rendus</span> </a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <i class="menu-icon typcn typcn-coffee"></i>
+            <span class="menu-title">Basic UI Elements</span>
+            <i class="fa fa-arrow-right"></i>
+          </a>
+          <div class="collapse" id="ui-basic">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item">
+                <a class="nav-link" href="../../pages/ui-features/buttons.html">Buttons</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../../pages/ui-features/dropdowns.html">Dropdowns</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../../pages/ui-features/typography.html">Typography</a>
+              </li>
+            </ul>
+          </div>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['expore']"
+            ><i class="fa fa-compass mr-3 "></i>
+            <span class="menu-title">Explorer</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['forum']"
+            ><i class="fa fa-comments mr-3 "></i>
+            <span class="menu-title">Forum</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            data-toggle="collapse"
+            href="#params"
+            aria-expanded="false"
+            aria-controls="params"
+            ><i class="fa fa-cog mr-3"></i>
+            <span class="menu-title">Paramétres</span>
+            <i class="fa fa-arrow-right"></i
+          ></a>
+          <div class="collapse ml-5" id="params">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['create-promos']">Promos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['create-referenciel']"
+                  >Référentiels</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['grp-compt']"
+                  >Groupe de compétences</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['create-comptence']"
+                  >Compétences</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/grp-tags']"
+                  >Groupe de tags</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['profils-sorti']"
+                  >Profil de sortie</a
+                >
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            data-toggle="collapse"
+            href="#users"
+            aria-expanded="false"
+            aria-controls="users"
+            ><i class="fa fa-user mr-3"></i>
+            <span class="menu-title">Users</span>
+            <i class="fa fa-arrow-right"></i
+          ></a>
+          <div class="collapse ml-5" id="users">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['users']">Utilisateurs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['profil']">Profils</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['hist-promos']"
+            ><i class="fa fa-history mr-3"></i>
+            <span class="menu-title">Historique des promos</span></a
+          >
+        </li>
+      </ul>
+
+      <div class="mb-5">
+        <h3 class="h6 mb-3">Subscribe for newsletter</h3>
+        <form action="#" class="subscribe-form">
+          <div class="form-group d-flex">
+            <div class="icon"><span class="icon-paper-plane"></span></div>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter Email Address"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <!-- Page Content  -->
+  <div id="content">
+    <app-admin-nav-bar></app-admin-nav-bar>
+    <div id="content" class="p-3 p-md-4 pt-4 ">
+      <p>
+        <router-outlet></router-outlet>
+      </p>
+    </div>
+  </div>
+</div>

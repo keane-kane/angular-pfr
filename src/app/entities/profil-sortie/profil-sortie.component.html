@@ -1,0 +1,44 @@
+
+<div class="col-lg-6 grid-margin stretch-card">
+  <div class="dash-right">
+    <div class="card">
+      <div class="dash-header d-flex justify-content-center">
+        <div class="dash-title ">
+          <h3 class=" pt-4 text-sm">Liste des Profils de Sorties</h3>
+        </div>
+         <div class="dash-nav ml-5 pt-4">
+          <a [routerLink]="['create-profil']" class="btn btn-info  fa fa-ajout">+</a>
+        </div> <!--764579037 778266539
+          76 168 69 59 -->
+      </div>
+      <div class="card-body">
+
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="">Libellé</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          <tr *ngFor="let ps of profilSorti">
+            <td class="">{{ ps.libelle}}</td>
+
+            <td class="action">
+              <a [routerLink]="['']" class="btn btn-primary btn-sm">List {{ ps.libelle}}</a>
+              <a [routerLink]="['/admin/posts/edit', ps.id]" class="btn btn-info btn-sm">Edit</a>
+              <a (click)="onDelete(ps.id)" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
+

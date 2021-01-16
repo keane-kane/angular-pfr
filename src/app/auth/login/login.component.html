@@ -1,0 +1,86 @@
+<div class="login-page">
+
+  <div class="content row" >
+    <div class="col-sm-4 img-odc col-sm-offset">
+      <img src="/assets/images/bgi.png" class="img" alt="odc">
+    </div>
+    <div class="col-sm-7 ">
+      <form
+        class="login-form"
+        (ngSubmit)="onSubmit()"
+        #f="ngForm"
+        novalidate
+      >
+        <h1 class="app-name">Sign in</h1>
+        <input
+          type="text"
+          placeholder="username"
+          class="form-control"
+          name="username"
+          [(ngModel)]="form.username"
+          required
+          minlength="6"
+          #username="ngModel"
+        />
+        <div
+          class="alert-u "
+          role="alert"
+          *ngIf="f.submitted && username.invalid"
+        >
+          Username is required!
+        </div>
+        <input
+          type="password"
+          placeholder="Password"
+          class="form-control"
+          name="password"
+          [(ngModel)]="form.password"
+          required
+          minlength="5"
+          #password="ngModel"
+        />
+        <div
+          class="alert-p "
+          role="alert"
+          *ngIf="f.submitted && password.invalid"
+        >
+          <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.minlength">
+            Password must be at least 5 characters
+          </div>
+        </div>
+        <button [disabled]="" class="btn btn-primary  w-100"> Sign In</button>
+        <a href="#" class="text-sm">Forgot your password?</a>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="service-error" *ngIf="error">
+  <h1>{{error.errorTitle}}</h1>
+  <h3>{{error.errorDesc}}</h3>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+<footer>
+  <p>
+    Created with <i class="fa fa-heart"></i> by
+    <a target="_blank" href="https://florin-pop.com">Florin Pop</a>
+    - Read how I created this and how you can join the challenge
+    <a
+      target="_blank"
+      href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/"
+      >here</a
+    >.
+  </p>
+</footer>
+
