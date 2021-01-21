@@ -5,7 +5,7 @@ import {
   Renderer2,
   ViewChild,
 } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, NgForm,FormGroup, Validators } from '@angular/forms';
 import { SharedService } from 'src/app/services/shared.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -19,7 +19,8 @@ export class ProfilComponent implements OnInit {
   error = '';
   profilForm: FormGroup;
   edit = 'form-control disabled';
-  @ViewChild('td') elRefs: ElementRef;
+  @ViewChild('input') elRefs: ElementRef;
+  @ViewChild('f') myForm: NgForm;
   uploadError: any;
   constructor(
     private sharedService: SharedService,
@@ -37,6 +38,7 @@ export class ProfilComponent implements OnInit {
       console.log(this.profils);
     });
 
+
   }
 
   onDelete(id: number): void {
@@ -50,51 +52,35 @@ export class ProfilComponent implements OnInit {
       );
     }
   }
-  onChange(id: number, input: FormControl): void {
-    this.sharedService.getById(+id).subscribe((res) => {
-      this.profilForm.setValue({
-        id: res.id,
-        libelle: res.libelle,
-        archive: res.archive,
-        users: res.users,
-      });
-    });
 
-    console.log(this.profilForm);
+  onChange(id: number, f): void {
 
-    if (id) {
-      this.sharedService.update(this.profilForm, +id).subscribe(
-        (res) => {
-          if (res.status === 'error') {
-            this.uploadError = res.message;
-          } else {
-            this.router.navigate(['/admin/profil']);
-          }
-        },
-        (error) => (this.error = error)
-      );
+
+    const el = this.elRef.nativeElement
+    .querySelectorAll('.form-control')[id - 1];
+    console.log(el.focus());
+    if (f.value && f.disabled !== true){
+      this.renderer.addClass(el, 'disabled') ;
+    }else{
+      el.focus()
     }
   }
 
 
-  onEdit(id: number, td): any {
-    console.log(td);
+  onEdit(id: number, f): any {
+  const el = this.elRef.nativeElement
+             .querySelectorAll('.form-control')[id - 1];
+  this.renderer.removeClass(el, 'disabled') ;
+  el.focus()
 
-    const el = td.textContent = 'rrrrrrrr';
-
-    console.log(el);
-
-    // const el = this.elRef.nativeElement.querySelectorAll('.form-control')[
-    //   id - 1
-    // ];
-    // el.focus();
-    // this.renderer.removeClass(el, 'disabled');
-    // if (!el.target) {
-    //   this.renderer.addClass(el, 'disabled');
-    //   console.log(el);
-    // }
   }
-
+  // getImageSecControl(): any {
+  //   return (this.profilForm.get('imagesSec') as FormArray).controls;
+  // }
+  // onAddSecImage(): void {
+  //   const control = new FormControl('', Validators.required);
+  //   (this.profilForm.get('imagesSec') as FormArray).push(control);
+  // }
 
 }
 

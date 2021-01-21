@@ -18,6 +18,7 @@ import { CreateGrpcompetencesComponent } from './entities/grp-competences/create
 import { CreateCompetencesComponent } from './entities/competences/create-competences/create-competences.component';
 import { CreateReferencielComponent } from './entities/referenciels/create-referenciel/create-referenciel.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ProfilDetailComponent } from './entities/profil/profil-detail/profil-detail.component';
 
 
 const routes: Routes = [
@@ -45,7 +46,8 @@ const routes: Routes = [
     },
     { path: 'profil', component: ProfilComponent,
       children: [
-      { path: 'create-profil', component: CreateProfilComponent}
+      { path: 'create-profil', component: CreateProfilComponent},
+      { path: 'profil-detail/:id', component: ProfilDetailComponent}
         ]
     },
   ]

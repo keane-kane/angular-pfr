@@ -4,7 +4,7 @@ import { SharedService } from './../../services/shared.service';
 @Component({
   selector: 'app-profil-sortie',
   templateUrl: './profil-sortie.component.html',
-  styleUrls: ['./profil-sortie.component.scss']
+  styleUrls: ['./profil-sortie.component.scss'],
 })
 export class ProfilSortieComponent implements OnInit {
   profilSorti = [];
@@ -14,23 +14,20 @@ export class ProfilSortieComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.sharedService.getAll()
-      .subscribe(profilSorties => {
-
-        this.profilSorti = profilSorties,
-        console.log(profilSorties);
-      });
-
+    this.sharedService.getAll().subscribe((profilSorties) => {
+      (this.profilSorti = profilSorties), console.log(profilSorties);
+    });
   }
-  onDelete(id: number ): void {
+  onDelete(id: number): void {
     if (confirm('Are you sure want to delete id = ' + id)) {
       this.sharedService.delete(+id).subscribe(
-        res => {
+        (res) => {
           console.log(res);
           this.ngOnInit();
         },
-        error => this.error = error
+        (error) => (this.error = error)
       );
     }
   }
+  onEdit(id): void {}
 }
