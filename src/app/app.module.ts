@@ -34,6 +34,7 @@ import { ProfilComponent } from './entities/profil/profil.component';
 import { CreateProfilComponent } from './entities/profil/create-profil/create-profil.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { Base64encodePipe } from './pipe/base64encode.pipe';
+import { ProfilDetailComponent } from './entities/profil/profil-detail/profil-detail.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { Base64encodePipe } from './pipe/base64encode.pipe';
     CreateProfilComponent,
     DragDropDirective,
     PageNotFoundComponent,
-    Base64encodePipe
+    Base64encodePipe,
+    ProfilDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +71,6 @@ import { Base64encodePipe } from './pipe/base64encode.pipe';
     FormsModule,
     MaterialsModule,
     ReactiveFormsModule,
-    FormsModule,
     RouterModule,
     HttpClientModule,
     NgxPaginationModule,
