@@ -29,7 +29,7 @@ export class ProfilComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
   ) {
-    this.sharedService.url = '/api/admin/profils';
+    this.sharedService.url = '/admin/profils';
   }
 
   ngOnInit(): void {

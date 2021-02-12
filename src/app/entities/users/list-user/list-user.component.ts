@@ -20,7 +20,7 @@ export class ListUserComponent implements OnInit {
   };
 
   constructor(private sharedService: SharedService)
-   { this.sharedService.url = '/api/users'; }
+   { this.sharedService.url = '/users'; }
 
   ngOnInit(): void {
       this.onFetch();
